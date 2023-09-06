@@ -150,3 +150,130 @@ SELECT *
 FROM superheroes
 ORDER BY year, appearances;
 
+
+/* ========================================================================== */
+
+/* Creation and Modification (alteration) of tables (CREATE TABLE; ALTER TABLE; ...) */
+
+/* Создать таблицу superheroes с указанными столбцами (список столбцов указывается в скобках, для каждого стобца указывается ИМЯ столбца (например, id, name, hair, eye и т.д.) и ТИП данных для данного столбца (например, INT, VARCHAR и т.д. */
+CREATE TABLE superheroes (
+	id INT,
+	name VARCHAR(100),
+	align VARCHAR(30),
+	eye VARCHAR(30),
+	hair VARCHAR(30),
+	gender VARCHAR(30),
+	appearances INT,
+	year INT,
+	universe VARCHAR(10)
+)
+
+
+/* ТИПЫ ДАННЫХ в SQL */
+
+/*
+   CHARACTER(n)         (CHAR(n))       --->   Строка фиксированной длины n
+   CHARACTER VARYING(n) (VARCHAR(n))    --->   Строка переменной длины, максимальная длина n
+   BOOLEAN                              --->   Логический тип данных
+   INTEGER (INT)                        --->   Целое число
+   NUMERIC(p,s)                         --->   Действительное число (p - количество згачащих цифр,
+                                               s - количество цифр после запятой). Хранится точно.
+   REAL                                 --->   Действительное число одинарной точности, формат IEEE 754
+   DOUBLE PRECISION                     --->   Действительное число двойной точности, формат IEEE 754
+   DATE                                 --->   Дата
+   TIMESTAMP                            --->   Дата и время
+*/
+
+
+/* ПЕРВИЧНЫЙ КЛЮЧ В ТАБЛИЦЕ (PRIMARY KEY) */
+CREATE TABLE superheroes (
+	id INT PRIMARY KEY,
+	name VARCHAR(100),
+	align VARCHAR(30),
+	eye VARCHAR(30),
+	hair VARCHAR(30),
+	gender VARCHAR(30),
+	appearances INT,
+	year INT,
+	universe VARCHAR(10)
+)
+
+/* АВТОМАТИЧЕСКОЕ ЗАПОЛНЕНИЕ ПЕРВИЧНОГО КЛЮЧА В ТАБЛИЦЕ (ключевое слово SERIAL) */
+/* SERIAL - каждый раз, когда мы вставлем запись в таблицу superheroes, идентификатор будет высчитываться автоматически (будет выбираться следующее значение целого числа (типа INT), которое ранее ещё не использовалось для вставки в таблицу) */
+/* Другие базы данных для этой функциональности используют другие ключевые слова (например, в MySQL используется ключевое слово AUTO_INCREMENT */
+
+CREATE TABLE superheroes (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(100),
+	align VARCHAR(30),
+	eye VARCHAR(30),
+	hair VARCHAR(30),
+	gender VARCHAR(30),
+	appearances INT,
+	year INT,
+	universe VARCHAR(10)
+)
+
+/* ПРОСМОТР СВЕДЕНИЙ О ТАБЛИЦЕ
+В Postgres: \d superheroes; --- для просмотра информации о таблице superheroes в командной строке
+В Oracle и MySQL: describe superheroes;
+*/
+
+/* УДАЛЕНИЕ ТАБЛИЦ */
+/* Удалить таблицу superheroes */
+DROP TABLE superheroes;
+
+
+
+/* ИЗМЕНЕНИЕ ТАБЛИЦ */
+
+/* Изменить таблицу superheroes */
+ALTER TABLE superheroes ADD COLUMN alive BOOLEAN; -- добавить столбец alive с типом данных BOOLEAN
+
+/* Добавить столбец first_appearance с типом данных TIMESTAMP (то есть столбец будет содержать информацию с днём, месяцем и годом) */
+ALTER TABLE superheroes ADD COLUMN first_appearance TIMESTAMP;
+
+/* Удалить столбец year */
+ALTER TABLE superheroes DROP COLUMN year;
+
+/* Переименовать столбец name в hero_name */
+ALTER TABLE superheroes RENAME COLUMN name TO hero_name;
+
+/* Переименовать таблицу superheroes (присвоить ей имя comic_characters)*/
+ALTER TABLE superheroes RENAME TO comic_characters;
+
+
+/* ========================================================================== */
+
+/* Вставка и изменение данных в SQL (INSERT INTO (...) VALUES (...)) */
+
+/* Вставить в таблицу superheroes (перечисляем поля, в которые хотим вставить данные) значения (перечисляем значения) */
+INSERT INTO superheroes(name, appearances, universe) 
+VALUES ('Spider-Man', 4043, 'marvel');
+
+/* Изменить данные в таблице superheroes для одной строки (идентификатор id=1) */
+UPDATE superheroes
+SET name='Batman',
+	universe='dc'
+WHERE id=1;
+
+/* Изменить данные в таблице superheroes для нескольких строк */
+UPDATE superheroes
+SET gender='Man',
+WHERE gender='Male Characters';
+
+/* Удаление данных из таблицы superheroes (удалить одну строку по id)*/
+DELETE FROM superheroes
+WHERE id=2;
+
+/* Удаление данных из таблицы superheroes (удалить несколько строк по фильтру)*/
+DELETE FROM superheroes
+WHERE gender='Male Characters';
+
+/* Удаление всех данных из таблицы superheroes */
+DELETE FROM superheroes;
+
+
+/* ========================================================================== */
+/* АГРЕГАТНЫЕ ФУНКЦИИ */
+
