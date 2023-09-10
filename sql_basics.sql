@@ -404,3 +404,13 @@ SELECT p.name AS product_name,
 	   p.price AS product_price,
 FROM products AS p JOIN product_types AS t
 ON p.type_id = t.id
+
+/* ЗАПРОС ДАННЫХ ИЗ НЕСКОЛЬКИХ ТАБЛИЦ (JOIN) с ФИЛЬТРАЦИЕЙ ДАННЫХ (WHERE) */
+SELECT p.name AS product_name, 
+       t.type_name AS product_type.
+	   p.price AS product_price,
+FROM products AS p JOIN product_types AS t
+ON p.type_id = t.id
+WHERE t.type_name = 'Вебинар'
+AND p.price = 0
+
