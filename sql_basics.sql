@@ -385,11 +385,17 @@ HAVING COUNT(*) BETWEEN 50 AND 300;
 /* ========================================================================== */
 /* JOIN --> ЗАПРОС ДАННЫХ ИЗ НЕСКОЛЬКИХ ТАБЛИЦ */
 
-/* Есть две табьлицы: 1)products; 2)product_types. Для связи между двумя таблицами в таблице products есть столбец type_id */
+/* Есть две таблицы: 1)products; 2)product_types. Для связи между двумя таблицами в таблице products есть столбец type_id */
 
 /* Вывести столбец name таблицы products и столбец type_name таблицы product_types */
 SELECT products.name, product_types.type_name
 FROM products JOIN product_types
 ON products.type_id = product_types.id
+
+
+/* ПСЕВДОНИМЫ ТАБЛИЦ для сокращения записи громоздких запросов JOIN */
+SELECT p.name, t.type_name
+FROM products AS p JOIN product_types AS t
+ON p.type_id = t.id
 
 
