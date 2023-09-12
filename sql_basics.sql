@@ -414,3 +414,13 @@ ON p.type_id = t.id
 WHERE t.type_name = 'Вебинар'
 AND p.price = 0
 
+
+
+/* ========================================================================== */
+/* SUBQUERIES (ПОДЗАПРОСЫ) */
+
+
+SELECT id, name, price
+FROM products
+WHERE price = (SELECT MAX(price) FROM products)  -- <--- данное вырежение в скобках является подзапросом
+
