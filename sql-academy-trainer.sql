@@ -34,6 +34,14 @@ WHERE plane = 'Boeing'
 SELECT DISTINCT plane FROM trip
 WHERE town_to = 'Moscow'
 
-
 /* Задание 8
 В какие города можно улететь из Парижа (Paris) и сколько времени это займёт? */
+SELECT town_to, TIMEDIFF(time_in, time_out) AS flight_time
+FROM trip
+WHERE town_from = 'Paris'
+
+/* Задание 9
+Какие компании организуют перелеты из Владивостока (Vladivostok)? */
+SELECT name FROM company JOIN trip
+ON company.id = trip.company
+WHERE town_from = 'Vladivostok'
