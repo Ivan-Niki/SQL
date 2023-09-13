@@ -51,3 +51,12 @@ WHERE town_from = 'Vladivostok'
 SELECT *
 FROM trip
 WHERE time_out BETWEEN '1900-01-01T10:00:00.000Z' AND '1900-01-01T14:00:00.000Z'
+
+
+/* Задание 11
+Выведите пассажиров с самым длинным ФИО. Пробелы, дефисы и точки считаются частью имени. */
+SELECT name FROM passenger
+ORDER BY LENGTH(name) DESC
+LIMIT 1
+
+
