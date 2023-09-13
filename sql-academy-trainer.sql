@@ -70,7 +70,7 @@ GROUP BY trip
 SELECT name
 FROM passenger
 GROUP BY name
-HAVING COUNT(*) > 1;
+HAVING COUNT(*) > 1
 
 /* Задание 14
 В какие города летал Bruce Willis */
@@ -79,6 +79,16 @@ FROM trip
 JOIN pass_in_trip ON trip.id = pass_in_trip.trip
 JOIN passenger ON pass_in_trip.passenger = passenger.id
 WHERE name = 'Bruce Willis'
+
+/* Задание 15
+Выведите дату и время прилёта пассажира Стив Мартин (Steve Martin) в Лондон (London) */
+SELECT time_in FROM trip
+JOIN pass_in_trip ON trip.id = pass_in_trip.trip
+JOIN passenger ON pass_in_trip.passenger = passenger.id
+WHERE name = 'Steve Martin' AND town_to = 'London'
+
+
+
 
 
 
