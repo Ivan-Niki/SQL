@@ -45,3 +45,9 @@ WHERE town_from = 'Paris'
 SELECT name FROM company JOIN trip
 ON company.id = trip.company
 WHERE town_from = 'Vladivostok'
+
+/* Задание 10
+Вывести вылеты, совершенные с 10 ч. по 14 ч. 1 января 1900 г. */
+SELECT *
+FROM trip
+WHERE time_out BETWEEN '1900-01-01T10:00:00.000Z' AND '1900-01-01T14:00:00.000Z'
