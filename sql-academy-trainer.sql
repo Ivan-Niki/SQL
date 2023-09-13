@@ -59,4 +59,9 @@ SELECT name FROM passenger
 ORDER BY LENGTH(name) DESC
 LIMIT 1
 
+/* Задание 12
+Вывести id и количество пассажиров для всех прошедших полётов. */
+SELECT trip, COUNT(passenger) AS count
+FROM pass_in_trip
+GROUP BY trip
 
