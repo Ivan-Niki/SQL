@@ -72,6 +72,14 @@ FROM passenger
 GROUP BY name
 HAVING COUNT(*) > 1;
 
+/* Задание 14
+В какие города летал Bruce Willis */
+SELECT town_to
+FROM trip
+JOIN pass_in_trip ON trip.id = pass_in_trip.trip
+JOIN passenger ON pass_in_trip.passenger = passenger.id
+WHERE name = 'Bruce Willis'
+
 
 
 
