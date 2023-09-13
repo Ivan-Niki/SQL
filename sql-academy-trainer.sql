@@ -65,3 +65,13 @@ SELECT trip, COUNT(passenger) AS count
 FROM pass_in_trip
 GROUP BY trip
 
+/* Задание 13
+Вывести имена людей, у которых есть полный тёзка среди пассажиров */
+SELECT name
+FROM passenger
+GROUP BY name
+HAVING COUNT(*) > 1;
+
+
+
+
