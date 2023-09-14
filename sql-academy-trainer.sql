@@ -76,20 +76,83 @@ HAVING COUNT(*) > 1
 В какие города летал Bruce Willis */
 SELECT town_to
 FROM trip
-JOIN pass_in_trip ON trip.id = pass_in_trip.trip
-JOIN passenger ON pass_in_trip.passenger = passenger.id
+JOIN pass_in_trip 
+	ON trip.id = pass_in_trip.trip
+JOIN passenger 
+	ON pass_in_trip.passenger = passenger.id
 WHERE name = 'Bruce Willis'
 
 /* Задание 15
 Выведите дату и время прилёта пассажира Стив Мартин (Steve Martin) в Лондон (London) */
-SELECT time_in FROM trip
-JOIN pass_in_trip ON trip.id = pass_in_trip.trip
-JOIN passenger ON pass_in_trip.passenger = passenger.id
+SELECT time_in
+FROM trip
+JOIN pass_in_trip 
+	ON trip.id = pass_in_trip.trip
+JOIN passenger 
+	ON pass_in_trip.passenger = passenger.id
 WHERE name = 'Steve Martin' AND town_to = 'London'
 
 
+/* Задание 16
+Вывести отсортированный по количеству перелетов (по убыванию) и имени (по возрастанию) список пассажиров, совершивших хотя бы 1 полет. */
+SELECT name, COUNT(*) AS count
+FROM passenger
+JOIN pass_in_trip
+    ON passenger.id = pass_in_trip.passenger
+GROUP BY passenger
+HAVING count > 0
+ORDER BY count DESC, name;
+
+/* Задание 17
+Определить, сколько потратил в 2005 году каждый из членов семьи. В результирующей выборке не выводите тех членов семьи, которые ничего не потратили. */
+SELECT member_name, status, SUM(amount*unit_price ) AS costs
+FROM FamilyMembers
+JOIN Payments
+ON FamilyMembers.member_id = Payments.family_member
+WHERE date BETWEEN '2005-01-01T00:00:00.000Z' AND '2005-12-31T00:00:00.000Z'
+GROUP BY member_name, status
+HAVING costs > 0
 
 
+/* Задание 18
+Узнать, кто старше всех в семьe */
+SELECT member_name
+FROM FamilyMembers
+ORDER BY birthday
+LIMIT 1
 
+/* Задание 19
+Определить, кто из членов семьи покупал картошку (potato) */
+SELECT DISTINCT status
+FROM FamilyMembers
+JOIN Payments ON FamilyMembers.member_id = Payments.family_member
+JOIN goods ON Payments.good = Goods.good_id
+WHERE good_name = 'potato'
+
+/* Задание 20
+Сколько и кто из семьи потратил на развлечения (entertainment). Вывести статус в семье, имя, сумму */
+SELECT status, member_name, SUM(amount*unit_price) AS costs
+FROM FamilyMembers
+JOIN Payments ON FamilyMembers.member_id = Payments.family_member
+JOIN Goods ON Payments.good = Goods.good_id
+JOIN GoodTypes ON Goods.type = GoodTypes.good_type_id
+WHERE good_type_name = 'entertainment'
+GROUP BY status, member_name
+
+/* Задание 21
+Определить товары, которые покупали более 1 раза */
+SELECT good_name
+FROM Goods JOIN Payments
+ON Goods.good_id = Payments.good
+GROUP BY good
+HAVING COUNT(good) > 1
+
+/* Задание 22
+Найти имена всех матерей (mother) */
+SELECT member_name FROM FamilyMembers
+WHERE status = 'mother'
+
+/* Задание 23
+Найдите самый дорогой деликатес (delicacies) и выведите его цену */
 
 
