@@ -154,5 +154,27 @@ WHERE status = 'mother'
 
 /* Задание 23
 Найдите самый дорогой деликатес (delicacies) и выведите его цену */
+SELECT good_name, unit_price
+FROM Goods
+JOIN Payments
+    ON Goods.good_id = Payments.good
+JOIN GoodTypes
+    ON Goods.type = GoodTypes.good_type_id
+WHERE good_type_name = 'delicacies'
+ORDER BY unit_price DESC
+LIMIT 1
 
 
+/* Задание 23 - вторая версия (с использованием подзапроса) */
+SELECT good_name, unit_price
+FROM Goods
+JOIN Payments
+    ON Goods.good_id = Payments.good
+JOIN GoodTypes
+    ON Goods.type = GoodTypes.good_type_id
+WHERE unit_price = (SELECT MAX(unit_price)
+						FROM Payments
+						JOIN Goods ON Goods.good_id = Payments.good
+						JOIN GoodTypes ON Goods.type = GoodTypes.good_type_id
+						WHERE GoodTypes.good_type_name = 'delicacies');
+						
