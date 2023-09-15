@@ -177,4 +177,13 @@ WHERE unit_price = (SELECT MAX(unit_price)
 						JOIN Goods ON Goods.good_id = Payments.good
 						JOIN GoodTypes ON Goods.type = GoodTypes.good_type_id
 						WHERE GoodTypes.good_type_name = 'delicacies');
-						
+
+/* Задание 24
+Определить кто и сколько потратил в июне 2005 */
+SELECT member_name, SUM(unit_price * amount ) AS costs
+FROM FamilyMembers
+JOIN Payments
+    ON FamilyMembers.member_id = Payments.family_member
+WHERE date BETWEEN '2005-06-01T00:00:00.000Z' AND '2005-06-30T00:00:00.000Z'
+GROUP BY member_name
+
