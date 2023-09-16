@@ -187,3 +187,11 @@ JOIN Payments
 WHERE date BETWEEN '2005-06-01T00:00:00.000Z' AND '2005-06-30T00:00:00.000Z'
 GROUP BY member_name
 
+
+
+/* Задание 28
+Сколько рейсов совершили авиакомпании из Ростова (Rostov) в Москву (Moscow) ? */
+SELECT COUNT(*) AS count
+FROM trip
+WHERE town_from = 'Rostov' AND town_to = 'Moscow'
+
