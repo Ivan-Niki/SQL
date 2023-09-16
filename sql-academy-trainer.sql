@@ -195,3 +195,14 @@ SELECT COUNT(*) AS count
 FROM trip
 WHERE town_from = 'Rostov' AND town_to = 'Moscow'
 
+
+/* Задание 29
+Выведите имена пассажиров улетевших в Москву (Moscow) на самолете TU-134 */
+SELECT DISTINCT name
+FROM Passenger
+JOIN Pass_in_trip
+    ON Passenger.id = Pass_in_trip.passenger
+JOIN trip
+    ON Pass_in_trip.trip = Trip.id
+WHERE plane = 'TU-134' AND town_to = 'Moscow'
+
