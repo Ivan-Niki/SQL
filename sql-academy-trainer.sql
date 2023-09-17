@@ -206,3 +206,9 @@ JOIN trip
     ON Pass_in_trip.trip = Trip.id
 WHERE plane = 'TU-134' AND town_to = 'Moscow'
 
+/* Задание 30
+Выведите нагруженность (число пассажиров) каждого рейса (trip). Результат вывести в отсортированном виде по убыванию нагруженности. */
+SELECT trip, COUNT(passenger) AS count 
+FROM Pass_in_trip
+GROUP BY trip
+ORDER BY count DESC
