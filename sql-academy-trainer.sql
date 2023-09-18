@@ -187,6 +187,24 @@ JOIN Payments
 WHERE date BETWEEN '2005-06-01T00:00:00.000Z' AND '2005-06-30T00:00:00.000Z'
 GROUP BY member_name
 
+/* Задание 25
+Определить, какие товары НЕ покупались в 2005 году */
+SELECT good_name
+FROM Goods
+WHERE good_id NOT IN (SELECT good FROM Payments
+                        WHERE YEAR(date) = 2005);
+
+
+/* Задание 26
+Определить группы товаров, которые не приобретались в 2005 году */
+SELECT good_type_name
+FROM GoodTypes
+WHERE good_type_id NOT IN (SELECT type FROM Goods
+                            JOIN Payments
+                                ON Goods.good_id = Payments.good
+                            WHERE YEAR(date) = 2005);
+
+
 
 
 /* Задание 28
