@@ -205,13 +205,23 @@ WHERE good_type_id NOT IN (SELECT type FROM Goods
                             WHERE YEAR(date) = 2005);
 
 
+/* Задание 27
+Узнать, сколько потрачено на каждую из групп товаров в 2005 году. Вывести название группы и сумму */
+SELECT good_type_name, SUM(amount*unit_price ) AS costs
+FROM GoodTypes
+JOIN Goods
+    ON GoodTypes.good_type_id = Goods.type
+JOIN Payments
+    ON Goods.good_id = Payments.good
+WHERE YEAR(date) = 2005
+GROUP BY good_type_name;
 
 
 /* Задание 28
 Сколько рейсов совершили авиакомпании из Ростова (Rostov) в Москву (Moscow) ? */
 SELECT COUNT(*) AS count
 FROM trip
-WHERE town_from = 'Rostov' AND town_to = 'Moscow'
+WHERE town_from = 'Rostov' AND town_to = 'Moscow';
 
 
 /* Задание 29
@@ -222,11 +232,13 @@ JOIN Pass_in_trip
     ON Passenger.id = Pass_in_trip.passenger
 JOIN trip
     ON Pass_in_trip.trip = Trip.id
-WHERE plane = 'TU-134' AND town_to = 'Moscow'
+WHERE plane = 'TU-134' AND town_to = 'Moscow';
 
 /* Задание 30
 Выведите нагруженность (число пассажиров) каждого рейса (trip). Результат вывести в отсортированном виде по убыванию нагруженности. */
 SELECT trip, COUNT(passenger) AS count 
 FROM Pass_in_trip
 GROUP BY trip
-ORDER BY count DESC
+ORDER BY count DESC;
+
+
