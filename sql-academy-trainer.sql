@@ -241,4 +241,17 @@ FROM Pass_in_trip
 GROUP BY trip
 ORDER BY count DESC;
 
+/* Задание 31
+Вывести всех членов семьи с фамилией Quincey. */
+SELECT * FROM FamilyMembers
+WHERE member_name LIKE '%Quincey'
+
+/* Задание 32
+Вывести средний возраст людей (в годах), хранящихся в базе данных. 
+Результат округлите до целого в меньшую сторону. */
+SELECT floor(AVG(TIMESTAMPDIFF(YEAR, birthday, NOW()))) AS age
+FROM FamilyMembers
+
+
+
 
