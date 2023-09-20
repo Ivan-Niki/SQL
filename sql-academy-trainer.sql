@@ -320,5 +320,17 @@ SELECT DISTINCT TIMEDIFF(
                 ) AS time
 FROM Timepair;
 
+/* Задание 43
+Выведите фамилии преподавателей, которые ведут физическую культуру (Physical Culture). 
+Отcортируйте преподавателей по фамилии. */
+SELECT last_name
+FROM Teacher
+JOIN Schedule
+    ON Teacher.id = Schedule.teacher
+JOIN Subject
+    ON Schedule.subject = Subject.id
+WHERE name =  'Physical Culture'
+ORDER BY last_name
+
 
 
