@@ -244,13 +244,13 @@ ORDER BY count DESC;
 /* Задание 31
 Вывести всех членов семьи с фамилией Quincey. */
 SELECT * FROM FamilyMembers
-WHERE member_name LIKE '%Quincey'
+WHERE member_name LIKE '%Quincey';
 
 /* Задание 32
 Вывести средний возраст людей (в годах), хранящихся в базе данных. 
 Результат округлите до целого в меньшую сторону. */
 SELECT floor(AVG(TIMESTAMPDIFF(YEAR, birthday, NOW()))) AS age
-FROM FamilyMembers
+FROM FamilyMembers;
 
 /* Задание 33
 Найдите среднюю стоимость икры. В базе данных хранятся данные о покупках 
@@ -259,7 +259,15 @@ SELECT AVG(unit_price) AS cost
 FROM Payments
 JOIN Goods
     ON Payments.good = Goods.good_id
-WHERE good_name = 'red caviar' OR good_name = 'black caviar'
+WHERE good_name = 'red caviar' OR good_name = 'black caviar';
+
+/* Задание 34
+Сколько всего 10-ых классов */
+SELECT COUNT(name) AS count
+FROM Class
+WHERE name LIKE '10%';
+
+
 
 
 
