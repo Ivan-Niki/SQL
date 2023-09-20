@@ -268,11 +268,20 @@ FROM Class
 WHERE name LIKE '10%';
 
 /* Задание 35
-Сколько различных кабинетов школы использовались 2.09.2019 в образовательных целях ? */
+Сколько различных кабинетов школы использовались 2.09.2019 в образовательных целях? */
 SELECT DISTINCT COUNT(classroom) AS count
 FROM Schedule
 WHERE date = '2019-09-02T00:00:00.000Z';
 
+/* Задание 36
+Выведите информацию об обучающихся живущих на улице Пушкина (ul. Pushkina)? */
+SELECT * FROM Student
+WHERE address LIKE '%ul. Pushkina%'
+
+/* Задание 37
+Сколько лет самому молодому обучающемуся? */
+SELECT MIN(TIMESTAMPDIFF(YEAR, birthday, NOW())) AS year
+FROM Student;
 
 
 
