@@ -298,7 +298,7 @@ JOIN Class
 WHERE name = '10 B';
 
 /* Задание 40
-Выведите название предметов, которые преподает Ромашкин П.П. (Romashkin P.P.) ? */
+Выведите название предметов, которые преподает Ромашкин П.П. (Romashkin P.P.)? */
 SELECT name  AS subjects
 FROM Subject
 JOIN Schedule
@@ -306,6 +306,11 @@ JOIN Schedule
 JOIN Teacher
     ON Schedule.teacher = Teacher.id
 WHERE last_name = 'Romashkin';
+
+/* Задание 41
+Во сколько начинается 4-ый учебный предмет по расписанию? */
+SELECT start_pair FROM Timepair
+WHERE id = 4
 
 
 
