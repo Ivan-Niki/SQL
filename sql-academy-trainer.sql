@@ -289,6 +289,13 @@ SELECT COUNT(first_name) AS count
 FROM Student
 WHERE first_name = 'Anna';
 
+/* Задание 39
+Сколько обучающихся в 10 B классе? */
+SELECT COUNT(student) AS count
+FROM Student_in_class
+JOIN Class
+    ON Student_in_class.class = Class.id
+WHERE name = '10 B';
 
 
 
