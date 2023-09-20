@@ -267,6 +267,12 @@ SELECT COUNT(name) AS count
 FROM Class
 WHERE name LIKE '10%';
 
+/* Задание 35
+Сколько различных кабинетов школы использовались 2.09.2019 в образовательных целях ? */
+SELECT DISTINCT COUNT(classroom) AS count
+FROM Schedule
+WHERE date = '2019-09-02T00:00:00.000Z';
+
 
 
 
