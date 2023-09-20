@@ -252,6 +252,16 @@ WHERE member_name LIKE '%Quincey'
 SELECT floor(AVG(TIMESTAMPDIFF(YEAR, birthday, NOW()))) AS age
 FROM FamilyMembers
 
+/* Задание 33
+Найдите среднюю стоимость икры. В базе данных хранятся данные о покупках 
+красной (red caviar) и черной икры (black caviar). */
+SELECT AVG(unit_price) AS cost
+FROM Payments
+JOIN Goods
+    ON Payments.good = Goods.good_id
+WHERE good_name = 'red caviar' OR good_name = 'black caviar'
+
+
 
 
 
