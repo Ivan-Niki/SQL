@@ -283,6 +283,12 @@ WHERE address LIKE '%ul. Pushkina%'
 SELECT MIN(TIMESTAMPDIFF(YEAR, birthday, NOW())) AS year
 FROM Student;
 
+/* Задание 38
+Сколько Анн (Anna) учится в школе? */
+SELECT COUNT(first_name) AS count
+FROM Student
+WHERE first_name = 'Anna';
+
 
 
 
