@@ -305,7 +305,9 @@ JOIN Schedule
     ON Subject.id = Schedule.subject
 JOIN Teacher
     ON Schedule.teacher = Teacher.id
-WHERE last_name = 'Romashkin';
+WHERE Teacher.last_name = 'Romashkin'
+	AND Teacher.first_name LIKE 'P%'
+	AND Teacher.middle_name LIKE 'P%';
 
 /* Задание 41
 Во сколько начинается 4-ый учебный предмет по расписанию? */
@@ -330,7 +332,7 @@ JOIN Schedule
 JOIN Subject
     ON Schedule.subject = Subject.id
 WHERE name =  'Physical Culture'
-ORDER BY last_name
+ORDER BY last_name;
 
 
 
