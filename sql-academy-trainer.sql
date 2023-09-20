@@ -297,6 +297,15 @@ JOIN Class
     ON Student_in_class.class = Class.id
 WHERE name = '10 B';
 
+/* Задание 40
+Выведите название предметов, которые преподает Ромашкин П.П. (Romashkin P.P.) ? */
+SELECT name  AS subjects
+FROM Subject
+JOIN Schedule
+    ON Subject.id = Schedule.subject
+JOIN Teacher
+    ON Schedule.teacher = Teacher.id
+WHERE last_name = 'Romashkin';
 
 
 
