@@ -366,5 +366,12 @@ JOIN Teacher
 WHERE Schedule.date = '2019-08-30T00:00:00.000Z'
 AND Teacher.last_name = 'Krauze';
 
-
+/* Задание 48
+Выведите заполненность классов в порядке убывания */
+SELECT name, COUNT(student) AS count
+FROM Class
+JOIN Student_in_class
+    ON Class.id = Student_in_class.class
+GROUP BY name
+ORDER BY count DESC;
 
