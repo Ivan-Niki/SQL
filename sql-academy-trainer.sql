@@ -357,5 +357,14 @@ JOIN Teacher
 WHERE Teacher.last_name = 'Krauze';
 
 
+/* Задание 47
+Сколько занятий провел Krauze 30 августа 2019 г.? */
+SELECT COUNT(*) AS count
+FROM Schedule
+JOIN Teacher
+    ON Schedule.teacher = Teacher.id
+WHERE Schedule.date = '2019-08-30T00:00:00.000Z'
+AND Teacher.last_name = 'Krauze';
+
 
 
