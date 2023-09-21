@@ -375,3 +375,13 @@ JOIN Student_in_class
 GROUP BY name
 ORDER BY count DESC;
 
+/* Задание 49
+Какой процент обучающихся учится в 10 A классе? */
+SELECT COUNT(student) *100 /
+(SELECT COUNT(student) FROM Student_in_class)
+AS percent
+FROM Student_in_class
+JOIN Class
+    ON Student_in_class.class = Class.id
+WHERE Class.name = '10 A';
+
