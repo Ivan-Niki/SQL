@@ -347,5 +347,15 @@ WHERE Class.name LIKE '10%';
 
 
 
+/* Задание 46
+В каких классах введет занятия преподаватель "Krauze"? */
+SELECT DISTINCT name FROM Class
+JOIN Schedule
+    ON Class.id = Schedule.class
+JOIN Teacher
+    ON Schedule.teacher = Teacher.id
+WHERE Teacher.last_name = 'Krauze';
+
+
 
 
