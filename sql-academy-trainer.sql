@@ -334,5 +334,18 @@ JOIN Subject
 WHERE name =  'Physical Culture'
 ORDER BY last_name;
 
+/* Задание 44
+Найдите максимальный возраст (колич. лет) среди обучающихся 10 классов? */
+SELECT MAX(TIMESTAMPDIFF(YEAR, birthday, NOW())) AS max_year
+FROM Student
+JOIN Student_in_class
+    ON Student.id = Student_in_class.student
+JOIN class
+    ON Student_in_class.class = Class.id
+WHERE Class.name LIKE '10%';
+
+
+
+
 
 
