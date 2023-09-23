@@ -393,3 +393,9 @@ WHERE Class.name = '10 A';
 UPDATE FamilyMembers
 SET member_name = 'Andie Anthony'
 WHERE member_name = 'Andie Quincey';
+
+
+/* Задание 54
+Удалить всех членов семьи с фамилией "Quincey". */
+DELETE FROM FamilyMembers
+WHERE member_name LIKE '%Quincey';
