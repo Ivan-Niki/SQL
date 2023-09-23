@@ -385,3 +385,11 @@ JOIN Class
     ON Student_in_class.class = Class.id
 WHERE Class.name = '10 A';
 
+
+
+
+/* Задание 53
+Измените имя "Andie Quincey" на новое "Andie Anthony". */
+UPDATE FamilyMembers
+SET member_name = 'Andie Anthony'
+WHERE member_name = 'Andie Quincey';
