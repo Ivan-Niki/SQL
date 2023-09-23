@@ -386,7 +386,11 @@ JOIN Class
 WHERE Class.name = '10 A';
 
 
-
+/* Задание 51
+Добавьте товар с именем "Cheese" и типом "food" в список товаров (Goods).
+В качестве первичного ключа (good_id) укажите количество записей в таблице + 1. */
+INSERT INTO Goods (good_id, good_name, type)
+VALUES (17, 'Cheese', 2);
 
 /* Задание 53
 Измените имя "Andie Quincey" на новое "Andie Anthony". */
@@ -399,3 +403,4 @@ WHERE member_name = 'Andie Quincey';
 Удалить всех членов семьи с фамилией "Quincey". */
 DELETE FROM FamilyMembers
 WHERE member_name LIKE '%Quincey';
+
