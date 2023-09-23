@@ -392,6 +392,12 @@ WHERE Class.name = '10 A';
 INSERT INTO Goods (good_id, good_name, type)
 VALUES (17, 'Cheese', 2);
 
+/* Задание 52
+Добавьте в список типов товаров (GoodTypes) новый тип "auto". */
+INSERT INTO GoodTypes (good_type_id, good_type_name)
+VALUES (9, 'auto');
+
+
 /* Задание 53
 Измените имя "Andie Quincey" на новое "Andie Anthony". */
 UPDATE FamilyMembers
