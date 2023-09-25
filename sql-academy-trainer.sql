@@ -429,3 +429,14 @@ WHERE member_name = 'Andie Quincey';
 DELETE FROM FamilyMembers
 WHERE member_name LIKE '%Quincey';
 
+
+
+
+/* Задание 56
+Удалить все перелеты, совершенные из Москвы (Moscow). */
+DELETE FROM Trip
+WHERE town_from = 'Moscow';
+
+
+
+
