@@ -386,6 +386,25 @@ JOIN Class
 WHERE Class.name = '10 A';
 
 
+/* Задание 50
+Какой процент обучающихся родился в 2000 году? 
+Результат округлить до целого в меньшую сторону. */
+SELECT FLOOR(COUNT(id)*100/(SELECT COUNT(id) FROM Student)) AS percent
+FROM Student
+WHERE YEAR(birthday) = 2000;
+
+-- 2nd version:
+SELECT FLOOR(COUNT(id)*100/(SELECT COUNT(id) FROM Student)) AS percent
+FROM Student
+WHERE birthday LIKE '2000%';
+
+-- 3rd version:
+SELECT FLOOR(COUNT(id)*100/(SELECT COUNT(id) FROM Student)) AS percent
+FROM Student
+WHERE birthday BETWEEN '2000-01-01T00:00:00.000Z' AND '2000-12-31T23:59:59.000Z';
+
+
+
 /* Задание 51
 Добавьте товар с именем "Cheese" и типом "food" в список товаров (Goods).
 В качестве первичного ключа (good_id) укажите количество записей в таблице + 1. */
