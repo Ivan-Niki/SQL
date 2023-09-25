@@ -231,3 +231,64 @@
 			
 		
 --------------------------------------------------------------------------------------------
+------- Таблица roles_employee -------
+
+/* 10. Создать таблицу roles_employee
+- id. Serial  primary key,
+- employee_id. Int, not null, unique (внешний ключ для таблицы employees, поле id)
+- role_id. Int, not null (внешний ключ для таблицы roles, поле id) */
+
+	CREATE TABLE roles_employee (
+		id SERIAL PRIMARY KEY,
+		employee_id INT NOT NULL UNIQUE,
+		role_id INT NOT NULL,
+		FOREIGN KEY (employee_id) REFERENCES employees(id),
+		FOREIGN KEY (role_id) REFERENCES roles(id)
+	);
+		
+SELECT * FROM roles_employee;
+
+/* 11. Наполнить таблицу roles_employee 40 строками: */
+	INSERT INTO roles_employee (employee_id, role_id)
+	VALUES  (7, 2),
+			(20, 4),
+			(3, 9),
+			(5, 13),
+			(23, 4),
+			(11, 2),
+			(10, 9),
+			(22, 13),
+			(21, 3),
+			(34, 4),		
+			(6, 7),
+			(4, 18),
+			(12, 4),
+			(1, 2),
+			(13, 9),
+			(2, 15),
+			(14, 8),
+			(24, 1),
+			(9, 3),
+			(15, 19),	
+			(25, 16),
+			(26, 1),
+			(27, 5),
+			(28, 19),
+			(29, 11),
+			(30, 4),
+			(31, 7),
+			(32, 20),
+			(33, 15),
+			(35, 3),	
+			(50, 2),
+			(51, 7),
+			(52, 14),
+			(53, 5),
+			(54, 17),
+			(55, 19),
+			(56, 3),
+			(57, 11),
+			(58, 18),
+			(59, 4);
+	
+	SELECT * FROM roles_employee;
