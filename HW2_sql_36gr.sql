@@ -123,3 +123,68 @@
 
 
 --------------------------------------------------------------------------------------------
+	------- Таблица employee_salary -------
+
+/* 5. Создать таблицу employee_salary
+- id. Serial  primary key,
+- employee_id. Int, not null, unique
+- salary_id. Int, not null */
+
+	CREATE TABLE employee_salary (
+		id SERIAL PRIMARY KEY,
+		employee_id INT NOT NULL UNIQUE,
+		salary_id INT NOT NULL
+	);
+	
+	SELECT * FROM employee_salary;
+	
+	
+/* 6. Наполнить таблицу employee_salary 40 строками:
+- в 10 строк из 40 вставить несуществующие employee_id */
+
+	INSERT INTO employee_salary (employee_id, salary_id)
+	VALUES  (1, 3),
+			(2, 5),
+			(3, 1),
+			(4, 7),
+			(5, 12),
+			(6, 2),
+			(7, 3),
+			(8, 6),
+			(9, 2),
+			(10, 1),
+			(11, 13),
+			(12, 7),
+			(13, 4),
+			(14, 9),
+			(15, 3),
+			(16, 10),
+			(17, 2),
+			(18, 6),
+			(19, 8),
+			(20, 5),
+			(21, 9),
+			(22, 2),
+			(23, 14),
+			(24, 7),
+			(25, 3),
+			(26, 5),
+			(27, 8),
+			(28, 12),
+			(29, 1),
+			(30, 6),
+			(71, 4),
+			(72, 1),
+			(73, 15),
+			(74, 6),
+			(75, 8),
+			(76, 10),
+			(77, 3),
+			(78, 5),
+			(79, 3),
+			(80, 7);
+
+	SELECT * FROM employee_salary;
+		
+
+--------------------------------------------------------------------------------------------
