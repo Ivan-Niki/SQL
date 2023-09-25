@@ -444,5 +444,13 @@ SET start_pair = start_pair + INTERVAL 30 MINUTE,
     end_pair = end_pair + INTERVAL 30 MINUTE;
 	
 
+/* Задание 59
+Вывести пользователей, указавших, белорусский номер телефона. 
+Телефонный код Белоруссии +375. */
+SELECT * FROM Users
+WHERE phone_number LIKE '+375%';
+
+
+
 
 
