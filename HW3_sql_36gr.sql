@@ -36,3 +36,70 @@ LEFT JOIN salary
 	ON employee_salary.salary_id = salary.id
 WHERE monthly_salary < 2000;
 --WHERE employee_name is NULL;
+
+------- 5. Найти всех работников кому не начислена ЗП.
+SELECT employee_name, salary_id, monthly_salary
+FROM employees
+LEFT JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+LEFT JOIN salary
+	ON employee_salary.salary_id = salary.id
+
+------- 6. Вывести всех работников с названиями их должности.
+SELECT employee_name, role_name
+FROM employees
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+	
+------- 7. Вывести имена и должность только Java разработчиков.
+SELECT employee_name, role_name
+FROM employees
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Java developer'
+
+
+------- 8. Вывести имена и должность только Python разработчиков.
+SELECT employee_name, role_name
+FROM employees
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Python developer%'
+
+
+------- 9. Вывести имена и должность всех QA инженеров.
+SELECT employee_name, role_name
+FROM employees
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%QA engineer%'
+
+
+------- 10. Вывести имена и должность ручных QA инженеров.
+SELECT employee_name, role_name
+FROM employees
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Manual QA engineer%'
+
+
+------- 11. Вывести имена и должность автоматизаторов QA
+SELECT employee_name, role_name
+FROM employees
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Automation QA engineer%'
+
+
