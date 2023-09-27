@@ -103,3 +103,45 @@ JOIN roles
 WHERE role_name LIKE '%Automation QA engineer%'
 
 
+------- 12. Вывести имена и зарплаты Junior специалистов
+SELECT employee_name, monthly_salary --role_name
+FROM employees
+JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+JOIN salary
+	ON employee_salary.salary_id = salary.id
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Junior%'
+
+
+------- 13. Вывести имена и зарплаты Middle специалистов
+SELECT employee_name, monthly_salary --role_name
+FROM employees
+JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+JOIN salary
+	ON employee_salary.salary_id = salary.id
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Middle%'
+
+
+------- 14. Вывести имена и зарплаты Senior специалистов
+SELECT employee_name, monthly_salary --role_name
+FROM employees
+JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+JOIN salary
+	ON employee_salary.salary_id = salary.id
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Senior%'
+
+
