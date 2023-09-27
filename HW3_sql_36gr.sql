@@ -145,3 +145,86 @@ JOIN roles
 WHERE role_name LIKE '%Senior%'
 
 
+------- 15. Вывести зарплаты Java разработчиков
+SELECT monthly_salary --role_name --employee_name
+FROM salary
+JOIN employee_salary
+	ON salary.id = employee_salary.salary_id
+JOIN employees
+	ON employee_salary.employee_id = employees.id
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Java developer%'
+
+
+------- 16. Вывести зарплаты Python разработчиков
+SELECT monthly_salary --role_name --employee_name
+FROM salary
+JOIN employee_salary
+	ON salary.id = employee_salary.salary_id
+JOIN employees
+	ON employee_salary.employee_id = employees.id
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Java developer%'
+
+
+------- 17. Вывести имена и зарплаты Junior Python разработчиков
+SELECT employee_name, monthly_salary, role_name -- employees.id
+FROM employees
+LEFT JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+LEFT JOIN salary
+	ON employee_salary.salary_id = salary.id
+LEFT JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+LEFT JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Junior Python developer%'
+
+
+------- 18. Вывести имена и зарплаты Middle JS разработчиков
+SELECT employee_name, monthly_salary, role_name -- employees.id
+FROM employees
+LEFT JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+LEFT JOIN salary
+	ON employee_salary.salary_id = salary.id
+LEFT JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+LEFT JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Middle JavaScript developer%'
+
+
+------- 19. Вывести имена и зарплаты Senior Java разработчиков
+SELECT employee_name, monthly_salary, role_name -- employees.id
+FROM employees
+LEFT JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+LEFT JOIN salary
+	ON employee_salary.salary_id = salary.id
+LEFT JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+LEFT JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Junior Java developer%'
+
+
+------- 20. Вывести зарплаты Junior QA инженеров
+SELECT employee_name, monthly_salary, role_name -- employees.id
+FROM employees
+LEFT JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+LEFT JOIN salary
+	ON employee_salary.salary_id = salary.id
+LEFT JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+LEFT JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Junior%QA engineer%'
+
