@@ -228,3 +228,42 @@ LEFT JOIN roles
 	ON roles_employee.role_id = roles.id
 WHERE role_name LIKE '%Junior%QA engineer%'
 
+
+------- 21. Вывести среднюю зарплату всех Junior специалистов
+SELECT AVG(monthly_salary) --employee_name,  -- employees.id
+FROM employees
+LEFT JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+LEFT JOIN salary
+	ON employee_salary.salary_id = salary.id
+LEFT JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+LEFT JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Junior%'
+
+SELECT AVG(monthly_salary) --employee_name,  -- employees.id
+FROM salary
+JOIN employee_salary
+	ON salary.id = employee_salary.salary_id
+JOIN employees
+	ON employee_salary.employee_id = employees.id
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Junior%'
+
+
+------- 22. Вывести сумму зарплат JS разработчиков
+SELECT SUM(monthly_salary) AS SUM_salary_JS_developers --employee_name,  -- employees.id
+FROM salary
+JOIN employee_salary
+	ON salary.id = employee_salary.salary_id
+JOIN employees
+	ON employee_salary.employee_id = employees.id
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%JavaScript developer%'
