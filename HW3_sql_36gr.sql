@@ -267,3 +267,74 @@ JOIN roles_employee
 JOIN roles
 	ON roles_employee.role_id = roles.id
 WHERE role_name LIKE '%JavaScript developer%'
+
+
+------- 23. Вывести минимальную ЗП QA инженеров
+SELECT MIN(monthly_salary) AS MIN_salary_QA_engineers --employee_name,  -- employees.id
+FROM salary
+JOIN employee_salary
+	ON salary.id = employee_salary.salary_id
+JOIN employees
+	ON employee_salary.employee_id = employees.id
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%QA engineer%'
+
+
+------- 24. Вывести максимальную ЗП QA инженеров
+SELECT MAX(monthly_salary) AS MAX_salary_QA_engineers --employee_name,  -- employees.id
+FROM salary
+JOIN employee_salary
+	ON salary.id = employee_salary.salary_id
+JOIN employees
+	ON employee_salary.employee_id = employees.id
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%QA engineer%'
+
+
+------- 25. Вывести количество QA инженеров
+SELECT COUNT(role_name) AS count_of_QA_engineers --employee_name,  -- employees.id
+FROM roles
+JOIN roles_employee
+ON roles.id = roles_employee.role_id
+JOIN employees
+	ON roles_employee.employee_id = employees.id
+JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+JOIN salary
+	ON employee_salary.salary_id = salary.id
+WHERE role_name LIKE '%QA engineer%'
+
+
+------- 26. Вывести количество Middle специалистов.
+SELECT COUNT(role_name) AS count_of_Middle_specialists --employee_name,  -- employees.id
+FROM roles
+JOIN roles_employee
+ON roles.id = roles_employee.role_id
+JOIN employees
+	ON roles_employee.employee_id = employees.id
+JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+JOIN salary
+	ON employee_salary.salary_id = salary.id
+WHERE role_name LIKE '%Middle%'
+
+
+------- 27. Вывести количество разработчиков
+SELECT COUNT(role_name) AS count_of_developers --employee_name,  -- employees.id
+FROM roles
+JOIN roles_employee
+ON roles.id = roles_employee.role_id
+JOIN employees
+	ON roles_employee.employee_id = employees.id
+JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+JOIN salary
+	ON employee_salary.salary_id = salary.id
+WHERE role_name LIKE '%developer%'
+
