@@ -364,3 +364,49 @@ LEFT JOIN employee_salary
 LEFT JOIN salary
 	ON employee_salary.salary_id = salary.id
 ORDER BY monthly_salary
+
+
+--- 30. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП от 1700 до 2300
+SELECT employee_name, role_name, monthly_salary
+FROM employees
+LEFT JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+LEFT JOIN roles
+	ON roles_employee.role_id = roles.id
+LEFT JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+LEFT JOIN salary
+	ON employee_salary.salary_id = salary.id
+WHERE monthly_salary BETWEEN 1700 AND 2300
+ORDER BY monthly_salary
+
+
+--- 31. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП меньше 2300
+SELECT employee_name, role_name, monthly_salary
+FROM employees
+LEFT JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+LEFT JOIN roles
+	ON roles_employee.role_id = roles.id
+LEFT JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+LEFT JOIN salary
+	ON employee_salary.salary_id = salary.id
+WHERE monthly_salary < 2300
+ORDER BY monthly_salary
+
+
+/* 32. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна 1100, 1500, 2000 */
+SELECT employee_name, role_name, monthly_salary
+FROM employees
+LEFT JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+LEFT JOIN roles
+	ON roles_employee.role_id = roles.id
+LEFT JOIN employee_salary
+	ON employees.id = employee_salary.employee_id
+LEFT JOIN salary
+	ON employee_salary.salary_id = salary.id
+WHERE monthly_salary IN (1100, 1500, 2000)
+ORDER BY monthly_salary
+
