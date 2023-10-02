@@ -646,6 +646,26 @@ FROM Orders INNER JOIN Products ON Orders.ProductId = Products.Id
 INNER JOIN Customers ON Orders.CustomerId = Customers.Id;
 
 
+/* Представления не содержат данные. А когда происходят запросы к представлениям, данные извлекаются из исходных таблиц, на основе котрых созданы представления.
+Однако существует другой вариант - материализованные представления, которые СОДЕРЖАТ данные. Данный вид представлений поддреживают не все СУБД, но PostgreSQL и Oracle поддерживают материализованные представления. */
+CREATE MATERIALIZED VIEW products_v
+AS SELECT Orders.CreatedAt AS OrderDate, 
+        p.id AS id,
+        p.name AS product_name,
+        t.type_name AS product_type,
+		p.price AS product_price
+FROM products AS p
+JOIN product_types AS t
+	ON p.type_id = t.Id;
+
+/* Недостаток в том, что данные в исходных таблицах обновляются, а в материализованном представлении эти изменения не учитываются. Поэтому для материализованного представления необходимо периодически запускать обновление с помощью команды REFRESH */
+REFRESH MATERIALIZED VIEW products_v;
+
+
+	
+
+
+
 
 
 
