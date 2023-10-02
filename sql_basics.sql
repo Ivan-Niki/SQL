@@ -619,8 +619,33 @@ CREATE TABLE orders (
 /* Представление — это способ задать ИМЯ для запроса SELECT на выборку данных и по этому ИМЕНИ быстро получать нужную «собранную» таблицу. То есть можно создать сложный запрос в базу данных и дать ему имя, чтобы каждый раз не расписывать полный SELECT. */
 
 -- Например, можно создать представление, содержащее нужные нам поля из одной таблицы.
-CREATE VIEW customers_v
-AS SELECT id, name FROM customers;
+CREATE VIEW customers_v AS
+SELECT id, name FROM customers;
+
+/* Пример №2. У нас в базе данных есть три связанных таблицы: 1) Products; 2) Customers; 3) Orders. 
+Добавим в базу данных, в которой содержатся 3 данные таблицы, представление OrdersProductsCustomers: */
+CREATE VIEW OrdersProductsCustomers AS
+SELECT Orders.CreatedAt AS OrderDate,
+       Customers.FirstName AS Customer,
+       Products.ProductName As Product  
+FROM Orders 
+INNER JOIN Products ON Orders.ProductId = Products.Id
+INNER JOIN Customers ON Orders.CustomerId = Customers.Id;
+
+-- данное представление фактически будет возвращать сводные данные из трех таблиц.
+
+-- Теперь используем созданное выше представление для получения данных:
+SELECT * FROM OrdersProductsCustomers;
+
+-- Также при создании представления можно определить набор его столбцов:
+CREATE VIEW OrdersProductsCustomers2 (OrderDate, Customer,Product)
+AS SELECT Orders.CreatedAt,
+        Customers.FirstName,
+        Products.ProductName
+FROM Orders INNER JOIN Products ON Orders.ProductId = Products.Id
+INNER JOIN Customers ON Orders.CustomerId = Customers.Id;
+
+
 
 
 
