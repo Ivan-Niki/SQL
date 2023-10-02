@@ -623,6 +623,9 @@ CREATE TABLE users (
     country varchar(255) DEFAULT 'Spain'
 );
 
+/* Чтобы создать ограничение DEFAULT в столбце «country», когда таблица уже создана, используйте следующее: */
+ALTER TABLE users
+ALTER country SET DEFAULT 'Spain';
 
 
 
