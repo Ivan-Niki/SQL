@@ -23,10 +23,10 @@ FROM superheroes
 LIMIT 10;
 
 /* ========================================================================== */
+---------------- /* Data filtration(WHERE)*/ ----------------
 
-/* Data filtration */
-
-/* 6. Указать, какие строки хотим выбрать. Вывести все строки из таблицы superheroes, в которых значение в столбце gender = 'Female Characters' */
+/* 6. Оператор SQL WHERE используется для фильтрации результатов и применения условий в предложениях SELECT, INSERT, UPDATE или DELETE.
+/* Указать, какие строки хотим выбрать. Вывести все строки из таблицы superheroes, в которых значение в столбце gender = 'Female Characters' */
 SELECT * 
 FROM superheroes
 WHERE gender = 'Female Characters';
