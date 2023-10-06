@@ -885,3 +885,13 @@ WHERE EXISTS (
   WHERE Orders.customer_id = Customers.customer_id
 );
 
+---------------------- Оператор NOT EXISTS в SQL ---------------------
+/* Мы также можем использовать оператор NOT, чтобы инвертировать работу оператора EXISTS. Команда SQL выполняется, если подзапрос возвращает пустой результат (т.е. NULL-значение). Например, выполним предыдущую SQL-команду, но уже с оператором NOT EXISTS: */
+SELECT customer_id, first_name
+FROM Customers
+WHERE NOT EXISTS (
+  SELECT order_id
+  FROM Orders
+  WHERE Orders.customer_id = Customers.customer_id
+);
+/* Здесь мы выводим всех клиентов, которые НЕ совершили заказ. */
