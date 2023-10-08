@@ -508,8 +508,7 @@ FROM Customers AS C
 JOIN Orders AS O
 ON C.customer_id = O.customer;
 
-
-
+/* Примеры с использованием оператора JOIN: */
 /* Есть две таблицы: 1)products; 2)product_types. Для связи между двумя таблицами в таблице products есть столбец type_id */
 
 /* Вывести столбец name таблицы products и столбец type_name таблицы product_types */
@@ -537,7 +536,19 @@ SELECT p.name AS product_name,
 FROM products AS p JOIN product_types AS t
 ON p.type_id = t.id
 WHERE t.type_name = 'Вебинар'
-AND p.price = 0
+AND p.price = 0;
+
+----------- Типы операторов JOIN ----------
+1) --- Оператор INNER JOIN в SQL
+/* Оператор INNER JOIN объединяет две таблицы на основе общего столбца и выбирает записи с совпадающими значениями в этих столбцах. Например: */
+SELECT Customers.customer_id, Customers.first_name, Orders.amount
+FROM Customers
+INNER JOIN Orders
+ON Customers.customer_id = Orders.customer
+WHERE Orders.amount >= 500;
+/* Здесь мы объединяем две таблицы и выбираем строки, в которых сумма (amount) больше или равна 500. */
+
+
 
 
 
