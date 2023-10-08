@@ -496,6 +496,11 @@ JOIN Orders
 ON Customers.customer_id = Orders.customer;
 /* Здесь мы выбираем столбцы customer_id и first_name (из таблицы Customers) и столбец amount (из таблицы Orders). В результате получаем те строки, в которых есть совпадение между customer_id (таблицы Customers) и customer (таблицы Orders). */
 
+/* Мы можем использовать псевдонимы (оператор AS) с именами таблиц, чтобы сделать код короче и чище. Например: */
+SELECT C.customer_id, C.first_name, O.amount
+FROM Customers AS C
+JOIN Orders AS O
+ON C.customer_id = O.customer;
 
 
 /* Есть две таблицы: 1)products; 2)product_types. Для связи между двумя таблицами в таблице products есть столбец type_id */
