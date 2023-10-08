@@ -561,6 +561,15 @@ ON C.customer_id = S.customer;
    объединяем таблицы Customers и Shippings на основе customer_id.
 Команда возвращает те строки, в которых есть совпадение между значениями столбцов в обоих условиях объединения. */
 
+2) --- Оператор LEFT JOIN в SQL
+/* Оператор LEFT JOIN объединяет две таблицы на основе общего столбца и выбирает не только записи с совпадающими значениями в этих столбцах, но и все оставшиеся строки из левой таблицы. Например: */
+SELECT Customers.customer_id, Customers.first_name, Orders.amount
+FROM Customers
+LEFT JOIN Orders
+ON Customers.customer_id = Orders.customer;
+/* Здесь мы выбираем столбцы customer_id и first_name (из таблицы Customers) и столбец amount (из таблицы Orders). В результате получаем те строки, в которых есть совпадение между customer_id (таблицы Customers) и customer (таблицы Orders) вместе со всеми остальными строками из (левой) таблицы Customers. */
+
+
 
 /* ========================================================================== */
 ----------- Подзапросы в SQL (SUBQUERIES) ----------
