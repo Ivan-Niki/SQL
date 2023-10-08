@@ -502,6 +502,13 @@ FROM Customers AS C
 JOIN Orders AS O
 ON C.customer_id = O.customer;
 
+/* Кроме того, мы также можем временно изменить и имена столбцов, используя псевдонимы. Например: */
+SELECT C.customer_id AS cid, C.first_name AS name, O.amount
+FROM Customers AS C
+JOIN Orders AS O
+ON C.customer_id = O.customer;
+
+
 
 /* Есть две таблицы: 1)products; 2)product_types. Для связи между двумя таблицами в таблице products есть столбец type_id */
 
