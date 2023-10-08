@@ -489,6 +489,14 @@ HAVING COUNT(*) BETWEEN 50 AND 300;
 
 /* ========================================================================== */
 /* JOIN --> ЗАПРОС ДАННЫХ ИЗ НЕСКОЛЬКИХ ТАБЛИЦ */
+/* Оператор JOIN объединяет две таблицы на основе общего столбца и выбирает записи с совпадающими значениями в этих столбцах. Например: */
+SELECT Customers.customer_id, Customers.first_name, Orders.amount
+FROM Customers
+JOIN Orders
+ON Customers.customer_id = Orders.customer;
+/* Здесь мы выбираем столбцы customer_id и first_name (из таблицы Customers) и столбец amount (из таблицы Orders). В результате получаем те строки, в которых есть совпадение между customer_id (таблицы Customers) и customer (таблицы Orders). */
+
+
 
 /* Есть две таблицы: 1)products; 2)product_types. Для связи между двумя таблицами в таблице products есть столбец type_id */
 
