@@ -548,8 +548,18 @@ ON Customers.customer_id = Orders.customer
 WHERE Orders.amount >= 500;
 /* Здесь мы объединяем две таблицы и выбираем строки, в которых сумма (amount) больше или равна 500. */
 
-
-
+--- Оператор INNER JOIN с тремя таблицами
+/* Мы также можем объединить более двух таблиц, используя оператор INNER JOIN. Например: */
+SELECT C.customer_id, C.first_name, O.amount, S.status
+FROM Customers AS C
+INNER JOIN Orders AS O
+ON C.customer_id = O.customer
+INNER JOIN Shippings AS S
+ON C.customer_id = S.customer;
+/* Здесь мы:
+   объединяем таблицы Customers и Orders на основе customer_id;
+   объединяем таблицы Customers и Shippings на основе customer_id.
+Команда возвращает те строки, в которых есть совпадение между значениями столбцов в обоих условиях объединения. */
 
 
 /* ========================================================================== */
