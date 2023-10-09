@@ -569,6 +569,13 @@ LEFT JOIN Orders
 ON Customers.customer_id = Orders.customer;
 /* Здесь мы выбираем столбцы customer_id и first_name (из таблицы Customers) и столбец amount (из таблицы Orders). В результате получаем те строки, в которых есть совпадение между customer_id (таблицы Customers) и customer (таблицы Orders) вместе со всеми остальными строками из (левой) таблицы Customers. */
 
+3) --- Оператор RIGHT JOIN в SQL
+/* Оператор RIGHT JOIN объединяет две таблицы на основе общего столбца и выбирает не только записи с совпадающими значениями в этих столбцах, но и все оставшиеся строки из правой таблицы. Например: */
+SELECT Customers.customer_id, Customers.first_name, Orders.amount
+FROM Customers
+RIGHT JOIN Orders
+ON Customers.customer_id = Orders.customer;
+/* Здесь мы выбираем столбцы customer_id и first_name (из таблицы Customers) и столбец amount (из таблицы Orders). В результате получаем те строки, в которых есть совпадение между customer_id (таблицы Customers) и customer (таблицы Orders) вместе со всеми остальными строками из (правой) таблицы Orders. */
 
 
 /* ========================================================================== */
