@@ -538,7 +538,9 @@ ON p.type_id = t.id
 WHERE t.type_name = 'Вебинар'
 AND p.price = 0;
 
------------ Типы операторов JOIN ----------
+
+                 ----------- Типы операторов JOIN ----------
+				 
 1) --- Оператор INNER JOIN в SQL
 /* Оператор INNER JOIN объединяет две таблицы на основе общего столбца и выбирает записи с совпадающими значениями в этих столбцах. Например: */
 SELECT Customers.customer_id, Customers.first_name, Orders.amount
@@ -576,6 +578,14 @@ FROM Customers
 RIGHT JOIN Orders
 ON Customers.customer_id = Orders.customer;
 /* Здесь мы выбираем столбцы customer_id и first_name (из таблицы Customers) и столбец amount (из таблицы Orders). В результате получаем те строки, в которых есть совпадение между customer_id (таблицы Customers) и customer (таблицы Orders) вместе со всеми остальными строками из (правой) таблицы Orders. */
+
+4) --- Оператор FULL OUTER JOIN в SQL
+/* Оператор FULL OUTER JOIN объединяет две таблицы на основе общего столбца и выбирает не только записи с совпадающими значениями в этих столбцах, но и все оставшиеся строки из обеих таблиц. Например: */
+SELECT Customers.customer_id, Customers.first_name, Orders.amount
+FROM Customers
+FULL OUTER JOIN Orders
+ON Customers.customer_id = Orders.customer;
+/* Здесь мы выбираем столбцы customer_id и first_name (из таблицы Customers) и столбец amount (из таблицы Orders). В результате получаем те строки, в которых есть совпадение между customer_id (таблицы Customers) и customer (таблицы Orders) вместе со всеми остальными строками из обеих таблиц. */
 
 
 /* ========================================================================== */
