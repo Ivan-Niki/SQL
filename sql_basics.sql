@@ -315,7 +315,18 @@ CREATE TABLE superheroes (
 	appearances INT,
 	year INT,
 	universe VARCHAR(10)
-)
+);
+
+----- Создание таблицы, используя записи из другой таблицы (CREATE TABLE AS) -----
+/* Мы также можем создать таблицу, используя записи из любой другой существующей таблицы, используя команду CREATE TABLE AS. Например: */
+CREATE TABLE JapanCustomers
+AS (
+  SELECT *
+  FROM Customers
+  WHERE country = 'Japan'
+);
+/* Здесь мы создаем таблицу с именем JapanCustomers и копируем в нее записи из вложенного запроса. */
+
 
 /* ПРОСМОТР СВЕДЕНИЙ О ТАБЛИЦЕ
 В Postgres: \d superheroes; --- для просмотра информации о таблице superheroes в командной строке
