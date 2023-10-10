@@ -385,13 +385,19 @@ UPDATE superheroes
 SET gender='Man',
 WHERE gender='Male Characters';
 
+
+
 /* Удаление данных из таблицы superheroes (удалить одну строку по id)*/
+/* Оператор DELETE FROM используется для удаления строк в таблице. Например: */
 DELETE FROM superheroes
 WHERE id=2;
+/* Здесь мы удаляем строку из таблицы superheroes, где id равен 2. */
 
-/* Удаление данных из таблицы superheroes (удалить несколько строк по фильтру)*/
+
+/* Удаление данных из таблицы superheroes (удалить несколько строк по фильтру) */
 DELETE FROM superheroes
 WHERE gender='Male Characters';
+
 
 /* Удаление всех данных из таблицы superheroes */
 DELETE FROM superheroes;
