@@ -1103,4 +1103,5 @@ ROLLBACK;
 SAVEPOINT savepoint_name;
 ROLLBACK TO savepoint_name;
 
- 
+--- Как удалить точку сохранения (savepoint):
+RELEASE SAVEPOINT savepoint_name;
