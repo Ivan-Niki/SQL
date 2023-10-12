@@ -348,22 +348,29 @@ DROP TABLE superheroes;
 
 
 
-/* ИЗМЕНЕНИЕ ТАБЛИЦ */
+---------------------- ИЗМЕНЕНИЕ ТАБЛИЦ --------------------
 
-/* Изменить таблицу superheroes */
+----- Изменить таблицу superheroes -----
 ALTER TABLE superheroes ADD COLUMN alive BOOLEAN; -- добавить столбец alive с типом данных BOOLEAN
 
 /* Добавить столбец first_appearance с типом данных TIMESTAMP (то есть столбец будет содержать информацию с днём, месяцем и годом) */
 ALTER TABLE superheroes ADD COLUMN first_appearance TIMESTAMP;
 
-/* Удалить столбец year */
+----- Удалить столбец year -----
 ALTER TABLE superheroes DROP COLUMN year;
 
-/* Переименовать столбец name в hero_name */
+----- Переименовать столбец name в hero_name -----
 ALTER TABLE superheroes RENAME COLUMN name TO hero_name;
 
-/* Переименовать таблицу superheroes (присвоить ей имя comic_characters)*/
+----- Переименовать таблицу superheroes (присвоить ей имя comic_characters) -----
 ALTER TABLE superheroes RENAME TO comic_characters;
+
+----- Изменение типа столбца -----
+/* Для изменения типа применяется ключевое слово TYPE. 
+Изменим в таблице Customers тип данных у столбца FirstName на VARCHAR(50): */
+ALTER TABLE Customers
+ALTER COLUMN FirstName TYPE VARCHAR(50);
+
 
 
 /* ========================================================================== */
@@ -905,7 +912,7 @@ INNER JOIN Customers ON Orders.CustomerId = Customers.Id;
 SELECT * FROM OrdersProductsCustomers;
 
 -- Также при создании представления можно определить набор его столбцов:
-CREATE VIEW OrdersProductsCustomers2 (OrderDate, Customer,Product)
+CREATE VIEW OrdersProductsCustomers2 (OrderDate, Customer, Product)
 AS SELECT Orders.CreatedAt,
         Customers.FirstName,
         Products.ProductName
@@ -1065,3 +1072,4 @@ UPDATE – изменяет существующие данные;
 DELETE – удаляет данные.
 
 */
+
