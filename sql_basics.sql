@@ -1122,5 +1122,5 @@ GRANT SELECT, UPDATE ON my_table TO SOME_USER, ANOTHER_USER;
 
 /* 2. REVOKE – отзывает выданные разрешения;
 Синтаксис: REVOKE privileges ON object FROM user;
-
-*/
+Пример: */
+REVOKE SELECT, UPDATE ON my_table FROM USER1, USER2;
