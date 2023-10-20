@@ -1278,3 +1278,6 @@ SELECT 'один, ' || 'два, ' || 'три' as result;
 -- Функцией concat:
 SELECT concat('один, ', 'два, ', 'три') as result;
 
+-- Из таблицы employee получи один столбец full_name в формате 'first_name last_name'
+SELECT CONCAT(first_name, ' ', last_name) AS full_name
+FROM employee;
