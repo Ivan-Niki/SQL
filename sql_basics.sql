@@ -1354,3 +1354,16 @@ SELECT *, ROUND(salary, 2) as salary FROM employees;
 -- В данном примере дробная зарплата округляется до одного знака после точки:
 SELECT *, ROUND(salary, 1) as salary FROM employees;
 
+
+
+
+------------ Функция FLOOR ------------
+/* Функция FLOOR используется для округления дробей до целого в меньшую сторону. */
+
+----- Синтаксис:
+SELECT FLOOR(поле) FROM имя_таблицы WHERE условие;
+
+-- Пример 1: 
+-- В данном примере дробная зарплата округляется до целых в меньшую сторону:
+SELECT *, FLOOR(salary) as floor_salary FROM employees;
+
