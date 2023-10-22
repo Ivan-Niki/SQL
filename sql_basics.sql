@@ -1346,4 +1346,11 @@ SELECT ROUND(поле, сколько_знаков_оставить) FROM имя
 -- В данном примере дробная зарплата округляется до целых при выборке:
 SELECT *, ROUND(salary) as salary FROM employees;
 
+-- Пример 2 
+-- В данном примере дробная зарплата округляется до двух знаков после точки:
+SELECT *, ROUND(salary, 2) as salary FROM employees;
+
+-- Пример 3
+-- В данном примере дробная зарплата округляется до одного знака после точки:
+SELECT *, ROUND(salary, 1) as salary FROM employees;
 
