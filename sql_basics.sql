@@ -474,6 +474,17 @@ VALUES
 INSERT INTO Customers(first_name, last_name, age, country)
 VALUES
 ('James', 'Bond', 48, 'USA');
+--- Здесь SQL автоматически устанавливает новый customer_id для новой строки и вставляет его в таблицу.
+
+
+----- Вставить сразу несколько строк -----
+
+--- Можно вставить сразу несколько строк в таблицу. Например:
+INSERT INTO Customers(first_name, last_name, age, country)
+VALUES
+('Harry', 'Potter', 31, 'USA'),
+('Chris', 'Hemsworth', 43, 'USA'),
+('Tom', 'Holland', 26, 'UK');
 
 
 
