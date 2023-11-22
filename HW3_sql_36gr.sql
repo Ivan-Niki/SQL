@@ -218,6 +218,19 @@ WHERE role_name LIKE '%Junior Java developer%';   --Senior девелоперо�
 ------- 20. Вывести зарплаты Junior QA инженеров -------
 SELECT monthly_salary, role_name --employee_name
 FROM salary
+JOIN employee_salary
+	ON salary.id = employee_salary.salary_id
+JOIN employees
+	ON employee_salary.employee_id = employees.id
+JOIN roles_employee
+	ON employees.id = roles_employee.employee_id
+JOIN roles
+	ON roles_employee.role_id = roles.id
+WHERE role_name LIKE '%Junior%QA engineer%';
+
+/* 
+SELECT monthly_salary, role_name --employee_name
+FROM salary
 RIGHT JOIN employee_salary
 	ON salary.id = employee_salary.salary_id
 RIGHT JOIN employees
@@ -227,6 +240,7 @@ RIGHT JOIN roles_employee
 RIGHT JOIN roles
 	ON roles_employee.role_id = roles.id
 WHERE role_name LIKE '%Junior%QA engineer%';
+*/
 
 
 ------- 21. Вывести среднюю зарплату всех Junior специалистов -------
