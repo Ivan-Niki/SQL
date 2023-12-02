@@ -181,6 +181,7 @@ WHERE gender = 'Female Characters';
     >=         --->      Больше или равно
     <          --->      Меньше
     <=         --->      Меньше или равно
+	%          --->      Остаток от деления
     between    --->      Проверка нахождения в указанном диапазоне
     in         --->      Проверка вхождения в список
     like       --->      Проверка строки на соответствие шаблону
@@ -230,6 +231,11 @@ FROM superheroes
 WHERE hair LIKE ('%Blond%');
 
 
+------------ Использование % (остаток от деления) в SQL -----------
+
+
+
+
 
 /* 8. Логические операции для использования в фильтрах с WHERE */
 /*
@@ -262,6 +268,8 @@ WHERE hair = 'Red Hair'
 SELECT * 
 FROM superheroes
 WHERE hair NOT IN ('Blond Hair', 'Black Hair', 'Brown Hair', 'Red Hair');
+
+
 
 /* ========================================================================== */
 --------- Работа с NULL-значениями в SQL ---------
@@ -615,7 +623,7 @@ WHERE id=1;
 
 /* Изменить данные в таблице superheroes для нескольких строк */
 UPDATE superheroes
-SET gender='Man',
+SET gender='Man'
 WHERE gender='Male Characters';
 
 
