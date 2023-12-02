@@ -232,9 +232,16 @@ WHERE hair LIKE ('%Blond%');
 
 
 ------------ Использование % (остаток от деления) в SQL -----------
+-- Вывести только чётные id из таблицы Products
+SELECT * FROM Products
+WHERE id % 2 = 0;
 
-
-
+-- Вывести только НЕчётные id из таблицы Products
+SELECT * FROM Products
+WHERE id % 2 = 1;
+---- или ----
+SELECT * FROM Products
+WHERE id % 2 != 0;
 
 
 /* 8. Логические операции для использования в фильтрах с WHERE */
