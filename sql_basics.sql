@@ -528,6 +528,13 @@ DROP COLUMN year;
 ALTER TABLE Customers
 DROP COLUMN age;
 
+/* Мы также можем удалить НЕСКОЛЬКО столбцов в таблице с помощью команды ALTER TABLE с оператором DROP. Например: */
+----- Удалить столбец year и столбец mileage из таблицы cars -----
+ALTER TABLE cars
+DROP COLUMN year,
+DROP COLUMN mileage;
+
+
 
 ---------------------- ИЗМЕНЕНИЕ ТИПА ДАННЫХ СТОЛБЦА ----------------------
 /* Для изменения типа данных столбца в PostgresQL применяется команда ALTER TABLE с оператором ALTER COLUMN и ключевым словом TYPE. Например:
