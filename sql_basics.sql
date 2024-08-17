@@ -263,7 +263,7 @@ WHERE gender = 'Female Characters'
 
 /* Использование OR в WHERE
 OR будет верным в случае выполнения хотя бы одного из выражений, которые входят в условие.
-/* Вывести все строки из таблицы superheroes, в которых значение в столбце gender = 'Female Characters' ЛИБО значение в столбце align = 'Bad Characters' */
+/* Вывести все строки из таблицы superheroes, в которых значение в столбце hair = 'Red Hair' ЛИБО 'Strawberry Blond Hair' ЛИБО 'Auburn Hair' */
 SELECT * 
 FROM superheroes
 WHERE hair = 'Red Hair'
@@ -409,7 +409,7 @@ CREATE TABLE superheroes (
    CHARACTER VARYING(n) (VARCHAR(n))    --->   Строка переменной длины, максимальная длина n
    BOOLEAN                              --->   Логический тип данных
    INTEGER (INT)                        --->   Целое число
-   NUMERIC(p,s)                         --->   Действительное число (p - количество згачащих цифр,
+   NUMERIC(p,s)                         --->   Действительное число (p - количество значащих цифр,
                                                s - количество цифр после запятой). Хранится точно.
    REAL                                 --->   Действительное число одинарной точности, формат IEEE 754
    DOUBLE PRECISION                     --->   Действительное число двойной точности, формат IEEE 754
