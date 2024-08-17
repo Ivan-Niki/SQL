@@ -498,6 +498,12 @@ ALTER TABLE Customers
 ADD COLUMN phone varchar(10), 
 ADD COLUMN age int;
 
+----- Добавить столбец year и столбец mileage в таблицу cars -----
+ALTER TABLE cars
+ADD COLUMN year INT, 
+ADD COLUMN mileage INT;
+
+
 
 -------------------- ПЕРЕИМЕНОВАНИЕ СТОЛБЦА / ПРЕИМЕНОВАНИЕ ТАБЛИЦЫ --------------------
 /* Мы можем переименовать столбцы в таблице с помощью команды ALTER TABLE с оператором RENAME COLUMN. 
