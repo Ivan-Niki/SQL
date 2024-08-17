@@ -491,11 +491,12 @@ ALTER TABLE superheroes ADD COLUMN first_appearance TIMESTAMP;
 
 ----- Добавить столбец с именем phone в таблицу Customers с типом данных varchar(10).
 ALTER TABLE Customers
-ADD phone varchar(10);
+ADD COLUMN phone varchar(10);
 
 ----- Мы также можем добавить сразу НЕСКОЛЬКО столбцов в таблицу. Например:
 ALTER TABLE Customers
-ADD phone varchar(10), age int;
+ADD COLUMN phone varchar(10), 
+ADD COLUMN age int;
 
 
 -------------------- ПЕРЕИМЕНОВАНИЕ СТОЛБЦА / ПРЕИМЕНОВАНИЕ ТАБЛИЦЫ --------------------
