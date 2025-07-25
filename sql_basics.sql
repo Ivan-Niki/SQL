@@ -368,7 +368,9 @@ FROM superheroes
 WHERE align = 'Bad Characters'
 ORDER BY appearances DESC;
 
-/* Вывести все данные из таблицы superheroes, в которых значение в столбце align = 'Bad Characters' и одновременно с эти значение в столбце gender = 'Female Characters' и отсортировать их по столбцу appearances в порядке убывания и ограничить количество выводимых строк (5 строк) */
+/* Вывести все данные из таблицы superheroes, в которых значение в столбце align = 'Bad Characters' и 
+одновременно с этим значение в столбце gender = 'Female Characters' и отсортировать их по столбцу appearances 
+в порядке убывания и ограничить количество выводимых строк (5 строк) */
 SELECT * 
 FROM superheroes
 WHERE align = 'Bad Characters'
@@ -378,7 +380,8 @@ LIMIT 5;
 
 
 /* Сортировка по нескольким столбцам */
-/* Вывести все данные из таблицы superheroes и отсортировать их по году появления (year), а внутри каждого года по количеству появлений (appearances) в порядке возрастания (по умолчанию) */
+/* Вывести все данные из таблицы superheroes и отсортировать их по году появления (year), а внутри каждого 
+года по количеству появлений (appearances) в порядке возрастания (по умолчанию) */
 SELECT * 
 FROM superheroes
 ORDER BY year, appearances;
@@ -412,7 +415,9 @@ DROP DATABASE my_db;
 
 /* Creation and Modification (alteration) of tables (CREATE TABLE; ALTER TABLE; ...) */
 
-/* Создать таблицу superheroes с указанными столбцами (список столбцов указывается в скобках, для каждого столбца указывается ИМЯ столбца (например, id, name, hair, eye и т.д.) и ТИП данных для данного столбца (например, INT, VARCHAR и т.д. */
+/* Создать таблицу superheroes с указанными столбцами (список столбцов указывается в скобках, для каждого 
+столбца указывается ИМЯ столбца (например, id, name, hair, eye и т.д.) и ТИП данных для данного столбца 
+(например, INT, VARCHAR и т.д. */
 CREATE TABLE superheroes (
 	id INT,
 	name VARCHAR(100),
