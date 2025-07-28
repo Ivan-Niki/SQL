@@ -123,3 +123,13 @@ FROM book
 WHERE title LIKE '______%'
 ORDER BY total_price DESC;
 
+-- 13) Отобрать различные (уникальные) элементы столбца amount таблицы book.
+-- Вариант 1:
+SELECT DISTINCT amount
+FROM book;
+
+-- Вариант 2:
+SELECT amount
+FROM book
+GROUP BY amount;
+
