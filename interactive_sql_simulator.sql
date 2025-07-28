@@ -114,3 +114,12 @@ FROM book
 WHERE title LIKE "_% _%" AND (author LIKE "% _.С." OR author LIKE "% С._.")
 ORDER BY title;
 
+/* 12) Вывести названия книг, и суммарную стоимость всех их экземпляров (столбец назвать 
+total_price), в названии которых более 5 символов, результат отсортировать по убыванию 
+суммарной стоимости всех экземпляров */
+
+SELECT title, price * amount AS total_price
+FROM book
+WHERE title LIKE '______%'
+ORDER BY total_price DESC;
+
