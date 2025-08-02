@@ -203,3 +203,11 @@ WHERE title <> 'Идиот' AND title <> 'Белая гвардия'
 GROUP BY author
 HAVING Стоимость > 5000
 ORDER BY Стоимость DESC;
+
+/* 20) Вывести информацию (автора, название и цену) о  книгах, цены которых меньше или равны средней цене книг на складе.
+Информацию вывести в отсортированном по убыванию цены виде. Среднее вычислить как среднее по цене книги. */
+SELECT author, title, price
+FROM book
+WHERE price <= (SELECT AVG(price) FROM book)
+ORDER BY price DESC;
+
