@@ -275,3 +275,19 @@ INSERT INTO book (title, author, price, amount)
 SELECT title, author, price, amount 
 FROM supply
 WHERE author != 'Булгаков М.А.' AND author != 'Достоевский Ф.М.';
+
+
+-- 29) Занести из таблицы supply в таблицу book только те книги, авторов которых нет в  book.
+INSERT INTO book (title, author, price, amount) 
+SELECT title, author, price, amount 
+FROM supply
+WHERE author NOT IN (
+        SELECT author 
+        FROM book
+      );
+
+
+-- 30) Уменьшить на 10% цену тех книг в таблице book, количество которых принадлежит интервалу от 5 до 10, включая границы.
+UPDATE book 
+SET price = 0.9 * price
+WHERE amount BETWEEN 5 AND 10;
