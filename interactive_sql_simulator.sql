@@ -307,3 +307,20 @@ SET book.amount = book.amount + supply.amount,
 book.price = (book.price + supply.price)/2
 WHERE book.title = supply.title AND book.author = supply.author;
 
+
+
+-- Запросы на удаление
+/* 33) Удалить из таблицы supply книги тех авторов, общее количество экземпляров книг 
+которых в таблице book превышает 10. */
+DELETE FROM supply
+WHERE author IN (
+    SELECT author 
+    FROM book 
+    GROUP BY author
+    HAVING SUM(amount) > 10
+    );
+
+
+
+
+
