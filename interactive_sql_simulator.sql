@@ -330,4 +330,9 @@ FROM trip
 WHERE name LIKE "%а _._."
 ORDER BY date_last DESC;
 
+/* 37) Вывести в алфавитном порядке фамилии и инициалы тех сотрудников, которые были в командировке в Москве. */
+SELECT DISTINCT name
+FROM trip
+WHERE city = 'Москва'
+ORDER BY name;
 
