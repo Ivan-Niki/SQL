@@ -308,7 +308,6 @@ book.price = (book.price + supply.price)/2
 WHERE book.title = supply.title AND book.author = supply.author;
 
 
-
 -- Запросы на удаление
 /* 33) Удалить из таблицы supply книги тех авторов, общее количество экземпляров книг 
 которых в таблице book превышает 10. */
@@ -322,5 +321,13 @@ WHERE author IN (
 
 
 
+-- Таблица "Командировки"
+/* 36) Вывести из таблицы trip информацию о командировках тех сотрудников, фамилия которых 
+заканчивается на букву «а», в отсортированном по убыванию даты последнего дня командировки виде. 
+В результат включить столбцы name, city, per_diem, date_first, date_last. */
+SELECT name, city, per_diem, date_first, date_last
+FROM trip
+WHERE name LIKE "%а _._."
+ORDER BY date_last DESC;
 
 
