@@ -377,4 +377,14 @@ FROM trip
 WHERE city NOT IN ('Москва', 'Санкт-Петербург')
 ORDER BY Длительность DESC, city DESC
 
+/* 41) Вывести информацию о командировках сотрудника(ов), которые были самыми короткими по 
+времени. В результат включить столбцы name, city, date_first, date_last. */
+SELECT name, city, date_first, date_last
+FROM trip
+WHERE date_last - date_first IN (
+    SELECT MIN(date_last - date_first)
+    FROM trip
+    );
+	
+
 
