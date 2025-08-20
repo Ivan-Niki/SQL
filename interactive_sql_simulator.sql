@@ -540,5 +540,19 @@ CREATE TABLE back_payment
 DELETE FROM fine
 WHERE date_violation < DATE(20200201) AND date_payment IS NOT NULL;
 
+/* 54) Создать таблицу author следующей структуры:
+______________________________________________
+Поле	     | Тип, описание                  |
+author_id	 | INT PRIMARY KEY AUTO_INCREMENT |
+name_author	 | VARCHAR(50)                    |
+----------------------------------------------|
+*/
+
+CREATE TABLE author (
+    author_id int PRIMARY KEY AUTO_INCREMENT,
+    name_author varchar(50)
+);
+
+
 
 
