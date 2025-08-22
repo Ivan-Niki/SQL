@@ -604,3 +604,10 @@ INNER JOIN genre AS g
     ON b.genre_id = g.genre_id
 WHERE b.amount > 8
 ORDER BY 3 DESC;
+
+/* 60) Вывести все жанры, которые не представлены в книгах на складе. */
+SELECT name_genre
+FROM genre AS g 
+LEFT JOIN book AS b
+    ON g.genre_id = b.genre_id
+WHERE title IS NULL;
